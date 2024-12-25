@@ -1,0 +1,18 @@
+.container {
+  margin: 30px auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.signin_container {
+  width: 500px;
+  height: 300px;
+}
+
+.signup_container {
+  width: 500px;
+  height: 400px;
+}

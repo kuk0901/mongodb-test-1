@@ -1,0 +1,28 @@
+server:
+  port: 8888 # 애플리케이션이 실행될 포트
+  servlet:
+    encoding:
+      charset: UTF-8 # 기본 문자 인코딩
+      force: true # 모든 요청에 대해 강제로 인코딩 적용
+
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  application:
+    name: mongo_test # 애플리케이션 이름
+  main:
+    web-application-type: servlet # 서블릿 기반 웹 애플리케이션으로 설정
+  data:
+    mongodb:
+      uri: mongodb://test_user:test_password@localhost:27018/test
+      database: test # 사용할 데이터베이스 이름
+
+custom:
+  jwt:
+    secretKey: fqHaPXr5blbBzJo0Ch2k/2GDBWH71N7gB5F+4QPl+kc= v
+
+logging:
+  level:
+    root: INFO
+    "[com.exam.mongo.test.mongo_test]": DEBUG

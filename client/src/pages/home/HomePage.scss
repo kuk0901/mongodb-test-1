@@ -1,0 +1,50 @@
+.home-container {
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+  align-items: center;
+
+  .main-container {
+    width: 100%;
+    height: 700px;
+    justify-content: space-between;
+    align-items: center;
+
+    .home-main__section,
+    .home-main__aside {
+      min-width: 700px;
+      height: inherit;
+    }
+
+    .home-main__section {
+      border-right: 1px solid;
+    }
+
+    .home-main__aside {
+      .header {
+        .header--title {
+          width: 140px;
+          text-align: center;
+          font-size: 24px;
+          margin: 10px auto auto;
+          border-bottom: 1px solid;
+        }
+      }
+
+      .link-container {
+        justify-content: end;
+        margin-right: 10px;
+      }
+
+      .si-guide {
+        .si-guide__list {
+          .si-guide__item {
+            margin: 5px;
+            padding: 10px;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}

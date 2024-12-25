@@ -1,0 +1,33 @@
+// Text
+.text-gray {
+  color: gray;
+
+  &:hover {
+    color: rgb(88, 86, 86);
+  }
+}
+
+// Flexbox
+.flex {
+  display: flex;
+}
+
+// border
+.border-gray {
+  border: 1px solid gray;
+}
+
+// Container styles
+.btn-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+}
+
+.link-container {
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+  align-items: center;
+}

@@ -1,0 +1,25 @@
+.edit-si {
+  .si-guide__list {
+    .si-guide__item {
+      margin-bottom: 15px;
+
+      .si-guide__item-read {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .btn-container {
+          gap: 15px;
+        }
+      }
+
+      .si-guide__item-side {
+        .btn-container {
+          justify-content: start;
+          gap: 20px;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

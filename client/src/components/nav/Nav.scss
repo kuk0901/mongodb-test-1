@@ -1,0 +1,116 @@
+@use "sass:color";
+@use "../../styles/variables";
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 8px;
+    background: linear-gradient(
+      45deg,
+      red,
+      orange,
+      yellow,
+      green,
+      blue,
+      indigo,
+      violet
+    );
+    background-size: 400% 400%;
+    animation: rainbow-bg 10s ease infinite;
+
+    .icon {
+      font-size: 36px;
+      color: #fff;
+      mix-blend-mode: difference;
+    }
+  }
+
+  .user_nav,
+  .admin_nav {
+    position: relative;
+    width: 57%;
+    justify-content: space-between;
+    align-items: center;
+
+    .flex.menu {
+      gap: 15px;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .menu-item.btn {
+        a {
+          font-size: 18px;
+          color: #fff;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .user__icon {
+      margin-right: 10px;
+    }
+  }
+
+  button.user__icon {
+    border: none;
+    background-color: transparent;
+  }
+}
+
+.dropdown_menu {
+  position: absolute;
+  top: 100%; // 아이콘 바로 아래에 위치
+  right: 0; // 오른쪽 정렬
+  flex-direction: column;
+  gap: 10px;
+  background-color: gray;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 300;
+  margin: 5px;
+
+  .user_info,
+  .btn_signout {
+    width: 100%;
+    white-space: nowrap; // 텍스트의 줄 바꿈을 완전히 방지
+  }
+
+  a,
+  button {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    text-align: left;
+    background: none;
+    border: none;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+@keyframes rainbow-bg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
