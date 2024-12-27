@@ -34,7 +34,6 @@ const ManageServiceInstructionPage = () => {
       );
 
       if (isConfirmed) {
-        // 서버 요청 예시
         const res = await Api.patch(`/api/cs/si/guide-update`, {
           id: id,
           content: content
@@ -60,7 +59,6 @@ const ManageServiceInstructionPage = () => {
       );
 
       if (isConfirmed) {
-        // 서버 요청 예시
         const res = await Api.delete(`/api/cs/si/guide/${id}`);
 
         if (res.status === 200) {

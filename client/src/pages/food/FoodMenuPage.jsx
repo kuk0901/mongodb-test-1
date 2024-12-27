@@ -115,7 +115,9 @@ const FoodMenuPage = () => {
           next={() => fetchFoods(page + 1)}
           hasMore={hasMore}
           loader={<MiniLoading />} // TODO: scss 수정 필요 -> mini loading component
-          endMessage={<p className="get-all-menus">모든 메뉴를 불러왔습니다.</p>} // TODO: scss 수정 필요 -> css
+          endMessage={
+            <p className="get-all-menus">모든 메뉴를 불러왔습니다.</p>
+          } // TODO: scss 수정 필요 -> css
         >
           <ul className="flex food-menu__list">
             {foodList && foodList.length > 0 ? (

@@ -1,0 +1,31 @@
+.seat-section {
+  .seat-list__container {
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .seat-item__container {
+      margin: auto;
+      border: 1px solid black;
+      width: 150px;
+      height: 100px;
+      padding: 10px;
+
+      .seat-item__seatNumber,
+      .seat-item__cost {
+        text-align: center;
+      }
+
+      .seat-item__seatNumber {
+        height: 70%;
+        font-size: 20px;
+        line-height: 2;
+      }
+
+      .seat-item__cost {
+        height: 30%;
+      }
+    }
+  }
+}

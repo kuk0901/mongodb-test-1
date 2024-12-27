@@ -1,3 +1,4 @@
+// * _utilities.scss
 // Text
 .text-gray {
   color: gray;
@@ -5,6 +6,10 @@
   &:hover {
     color: rgb(88, 86, 86);
   }
+}
+
+.bold {
+  font-weight: 700;
 }
 
 // Flexbox

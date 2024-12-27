@@ -23,6 +23,8 @@ const FoodAddPage = lazy(() => import("./pages/food/FoodAddPage"));
 const ManageServiceInstructionPage = lazy(() =>
   import("./pages/manage/ManageServiceInstructionPage.jsx")
 );
+const SeatPage = lazy(() => import("./pages/seat/SeatPage.jsx"));
+const SeatAddPage = lazy(() => import("./pages/seat/SeatAddPage.jsx"));
 
 const ProtectedRoute = () => {
   const { user, loading } = useRecoilValue(userState);
@@ -55,7 +57,6 @@ function App() {
   }, [setUserInfo]);
 
   return (
-    // <UserProvider>
     <div className="App">
       <ToastContainer
         position="top-right" // 알람 위치 지정
@@ -86,6 +87,8 @@ function App() {
               path="/manage/service-instructions"
               element={<ManageServiceInstructionPage />}
             />
+            <Route path="/seat-menu" element={<SeatPage />} />
+            <Route path="manage/seat-add" element={<SeatAddPage />} />
           </Route>
 
           {/* Authentication Routes */}
@@ -96,7 +99,6 @@ function App() {
         </Routes>
       </Suspense>
     </div>
-    // </UserProvider>
   );
 }
 

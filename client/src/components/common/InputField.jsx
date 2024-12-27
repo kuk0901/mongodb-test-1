@@ -6,19 +6,33 @@ const InputField = ({
   type,
   placeholder,
   error,
-  className
+  className,
+  value,
+  onChange
 }) => {
-  return (
-    <div className={`input-container input-container__${className}`}>
+  if (register) {
+    return (
+      <div className={`input-container input-container__${className}`}>
+        <input
+          type={type}
+          {...register(name, { required: true })}
+          placeholder={placeholder}
+          className={`input__${className}`}
+        />
+        {error && <p>{error}</p>}
+      </div>
+    );
+  } else {
+    return (
       <input
+        value={value}
+        onChange={onChange}
         type={type}
-        {...register(name, { required: true })}
         placeholder={placeholder}
         className={`input__${className}`}
       />
-      {error && <p>{error}</p>}
-    </div>
-  );
+    );
+  }
 };
 
 export default InputField;

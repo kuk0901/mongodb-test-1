@@ -2,6 +2,7 @@
 import React from "react";
 import { useRecoilState } from "recoil";
 import { confirmState } from "../../atoms/confirmAtom";
+
 const Confirm = () => {
   const [{ isOpen, message, onConfirm, onCancel }, setConfirmState] =
     useRecoilState(confirmState);
@@ -10,6 +11,7 @@ const Confirm = () => {
 
   const handleConfirm = () => {
     onConfirm && onConfirm();
+
     setConfirmState({
       isOpen: false,
       message: "",
@@ -20,6 +22,7 @@ const Confirm = () => {
 
   const handleCancel = () => {
     onCancel && onCancel();
+    
     setConfirmState({
       isOpen: false,
       message: "",

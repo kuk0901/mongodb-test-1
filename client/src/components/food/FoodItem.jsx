@@ -25,7 +25,7 @@ const FoodItem = ({ food, onDelete, isAdmin }) => {
         {food.price.toLocaleString()}
       </div>
       {isAdmin && (
-        <button onClick={() => handleDelete()} className="btn delete">
+        <button onClick={handleDelete} className="btn delete">
           삭제
         </button>
       )}

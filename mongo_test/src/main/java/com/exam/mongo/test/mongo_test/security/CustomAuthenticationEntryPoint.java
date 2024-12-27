@@ -1,4 +1,4 @@
-package com.exam.mongo.test.security;
+package com.exam.mongo.test.mongo_test.security;
 
 import java.io.IOException;
 

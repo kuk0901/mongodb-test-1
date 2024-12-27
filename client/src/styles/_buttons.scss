@@ -1,3 +1,4 @@
+// * _buttons.scss
 // button
 .btn {
   display: inline-flex;
@@ -54,6 +55,18 @@
         variables.$tertiary-color,
         $lightness: -10%
       );
+    }
+  }
+
+  &.delete {
+    background-color: variables.$delete-color;
+
+    &:hover {
+      background-color: color.scale(variables.$delete-color, $lightness: 5%);
+    }
+
+    &:active {
+      background-color: color.scale(variables.$delete-color, $lightness: -10%);
     }
   }
 }

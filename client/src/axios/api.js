@@ -4,7 +4,7 @@ const Api = axios.create({
   baseURL: process.env.REACT_APP_API_URL
 });
 
-// 요청 인터셉터
+// * 요청 인터셉터
 Api.interceptors.request.use(
   async (config) => {
     const token = localStorage.getItem("token"); // Access Token 가져옴
@@ -18,7 +18,7 @@ Api.interceptors.request.use(
   }
 );
 
-// 응답 인터셉터
+// * 응답 인터셉터
 Api.interceptors.response.use(
   (response) => {
     return response;

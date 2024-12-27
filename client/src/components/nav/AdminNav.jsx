@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import { useUser } from "../../context/UserContext";
 import Api from "../../axios/api";
 import { FaUserCircle } from "react-icons/fa";
 import { useRecoilState } from "recoil";
 import { userState } from "../../atoms/userAtom";
 
 const AdminNav = () => {
-  // const { user, setUser } = useUser();
   const [{ user }, setUserInfo] = useRecoilState(userState);
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -17,7 +15,6 @@ const AdminNav = () => {
       await Api.post("/api/auth/signout", {}, { withCredentials: true });
 
       // 사용자 정보와 토큰 제거
-      // setUser(null); // Context에서 사용자 정보 제거
       setUserInfo({ user: null, loading: false });
       localStorage.removeItem("token"); // 로컬 스토리지에서 토큰 제거
 
@@ -32,7 +29,7 @@ const AdminNav = () => {
     <div className="flex admin_nav">
       <div className="flex menu">
         <div className="menu-item btn secondary">
-          <Link to="#">자리</Link>
+          <Link to="/seat-menu">자리</Link>
         </div>
         <div className="menu-item btn secondary">
           <Link to="#">회원</Link>

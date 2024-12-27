@@ -1,3 +1,4 @@
+// * _forms.scss
 // form styles
 .form-container {
   flex-direction: column;
@@ -87,5 +88,15 @@
     &.input__xl {
       width: 650px;
     }
+  }
+}
+
+.admin-input__list {
+  flex-direction: column;
+  gap: 10px;
+  border: none;
+
+  .admin-input__item {
+    border: 1px solid black;
   }
 }

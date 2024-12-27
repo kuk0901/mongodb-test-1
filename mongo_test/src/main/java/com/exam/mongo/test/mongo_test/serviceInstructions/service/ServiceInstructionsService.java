@@ -71,6 +71,11 @@ public class ServiceInstructionsService {
     ServiceInstruction prevSiDto = serviceInstructionsRepository.findById(serviceInstructionsDto.getId())
         .orElseThrow(() -> new CustomException("수정하려는 안내사항을 찾을 수 없습니다.", "400"));
 
+        /*
+          * orElseThrow 
+          * Optional 객체가 값을 포함하고 있을 때는 그 값을 반환하고, 값이 없을 경우(null일 경우) 지정된 예외를 발생
+        */
+        
     prevSiDto.setContent(serviceInstructionsDto.getContent());
     serviceInstructionsRepository.save(prevSiDto);
 

@@ -31,7 +31,6 @@ public class AuthController {
     this.tokenService = tokenService;
   }
 
-  // TODO: 수정해놨음
   @PostMapping("/signup")
   public ResponseEntity<ResponseDto<String>> signUp(@RequestBody UserDto userDto) {
     try {
@@ -42,7 +41,6 @@ public class AuthController {
     }
   }
 
-  // TODO: 수정해놨음
   @PostMapping("/signin")
   public ResponseEntity<ResponseDto<UserDto>> signIn(@RequestBody UserDto userDto, HttpServletResponse response) {
     try {

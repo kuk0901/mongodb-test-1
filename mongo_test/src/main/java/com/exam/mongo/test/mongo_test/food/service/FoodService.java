@@ -67,12 +67,11 @@ public class FoodService {
     return new FoodMenuDto(foodList, foodTypeList, foodPage.getTotalElements(), foodPage.getTotalPages());
   }
 
-
   @Transactional
   public ResponseDto<String> saveFoodOne(FoodDto foodDto) throws CustomException {
-    Food existingFood = foodRepository.findByFoodName(foodDto.getFoodName());
+    Optional<Food> existingFoodOpt = Optional.ofNullable(foodRepository.findByFoodName(foodDto.getFoodName()));
 
-    if (existingFood != null) {
+    if (existingFoodOpt.isPresent()) {
       throw new CustomException("이미 존재하는 메뉴입니다.", "409");
     }
 

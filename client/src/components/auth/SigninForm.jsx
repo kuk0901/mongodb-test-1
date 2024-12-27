@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-// import { useUser } from "../../context/UserContext"; // UserContext import
 import { useNavigate } from "react-router-dom";
 import Api from "../../axios/api";
 import { toast } from "react-toastify";
@@ -11,7 +10,7 @@ import { userState } from "../../atoms/userAtom";
 
 const SigninForm = () => {
   const setUserInfo = useSetRecoilState(userState);
-  // const { setUser } = useUser(); // 사용자 정보 설정 함수 가져오기
+
   const {
     register,
     handleSubmit,
