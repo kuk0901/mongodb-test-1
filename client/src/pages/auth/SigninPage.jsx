@@ -6,7 +6,9 @@ import style from "./auth.module.scss";
 
 const SigninPage = () => {
   const location = useLocation();
+  // * 로그아웃
   const [hasShownSignoutMessage, setHasShownSignoutMessage] = useState(false);
+  // * 회원가입
   const [hasShownRegisteredMessage, setHasShownRegisteredMessage] =
     useState(false);
 
@@ -14,6 +16,7 @@ const SigninPage = () => {
     const queryParams = new URLSearchParams(location.search);
 
     if (
+      // * localhost:3000/registered=true
       queryParams.get("registered") === "true" &&
       !hasShownRegisteredMessage
     ) {
@@ -32,7 +35,9 @@ const SigninPage = () => {
       <SigninForm />
       <div className="link-container">
         <div>
-          <Link to="/auth/signup" className="text-gray">회원가입</Link>
+          <Link to="/auth/signup" className="text-gray">
+            회원가입
+          </Link>
         </div>
       </div>
     </div>

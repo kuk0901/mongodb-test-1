@@ -10,7 +10,7 @@ const useConfirm = () => {
         isOpen: true,
         message,
         onConfirm: () => resolve(true),
-        onCancel: () => resolve(false)
+        onCancel: () => resolve(false),
       });
     });
   };

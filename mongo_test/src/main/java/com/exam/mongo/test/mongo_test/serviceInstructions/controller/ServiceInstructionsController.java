@@ -83,17 +83,4 @@ public class ServiceInstructionsController {
     }
   }
 
-  @DeleteMapping("/guide/{id}")
-  public ResponseEntity<ResponseDto<String>> deleteServiceInstructionOne(@PathVariable("id") String id) {
-    try {
-      ResponseDto<String> res = serviceInstructionsService.deleteServiceInstructionOne(id);
-      return ResponseEntity.status(HttpStatus.OK).body(res);
-    } catch (CustomException e) {
-      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseDto<>("", e.getMessage()));
-    } catch (Exception e) {
-      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-          .body(new ResponseDto<>("", "서버 오류가 발생했습니다. 잠시 후 다시 시도해 주세요."));
-    }
-  }
-
 }

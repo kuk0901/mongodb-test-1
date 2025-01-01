@@ -17,4 +17,6 @@ public interface SeatRepository extends MongoRepository<Seat, String> {
   Optional<Seat> findById(String id);
 
   boolean existsById(String id);
+
+  void deleteById(String id);
 }

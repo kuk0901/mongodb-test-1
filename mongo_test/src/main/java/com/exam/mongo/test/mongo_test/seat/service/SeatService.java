@@ -58,14 +58,37 @@ public class SeatService {
 
   @Transactional
   public ResponseDto<String> updateSeatOne(SeatDto seatDto) throws CustomException {
-    if (!seatRepository.existsById(seatDto.getId())) {
-      throw new CustomException("수정하려는 좌석을 찾을 수 없습니다.", "400");
-    }
+    return seatRepository.findById(seatDto.getId())
+        .map(currentSeat -> {
+          // 변경 사항이 없으면 예외 발생
+          if (currentSeat.getSeatNumber() == seatDto.getSeatNumber()
+              && currentSeat.getCost() == seatDto.getCost()) {
+            throw new CustomException("변경 사항이 없습니다.", "400");
+          }
 
-    Seat seat = modelMapper.map(seatDto, Seat.class);
-    seatRepository.save(seat);
+          // 좌석 번호가 변경되었고, 새 번호가 이미 존재하는 경우 예외 발생
+          if (currentSeat.getSeatNumber() != seatDto.getSeatNumber()
+              && seatRepository.findBySeatNumber(seatDto.getSeatNumber()).isPresent()) {
+            throw new CustomException("이미 존재하는 좌석 번호입니다.", "409");
+          }
 
-    return new ResponseDto<>("", "좌석에 대한 정보가 수정되었습니다.");
+          currentSeat.setSeatNumber(seatDto.getSeatNumber());
+          currentSeat.setCost(seatDto.getCost());
+
+          seatRepository.save(currentSeat);
+          return new ResponseDto<>("", "좌석에 대한 정보가 수정되었습니다.");
+        })
+        .orElseThrow(() -> new CustomException("수정하려는 좌석을 찾을 수 없습니다.", "400"));
+  }
+
+  @Transactional
+  public ResponseDto<String> deleteSeatOne(String id) throws CustomException {
+
+    Seat seatToDelete = seatRepository.findById(id)
+        .orElseThrow(() -> new CustomException("삭제하려는 좌석을 찾을 수 없습니다.", "400"));
+
+    seatRepository.deleteById(id);
+    return new ResponseDto<>("", "좌석 " + seatToDelete.getSeatNumber() + "이(가) 삭제되었습니다.");
   }
 
 }
